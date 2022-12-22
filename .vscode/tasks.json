@@ -1,15 +1,26 @@
 {
     "tasks": [
         {
-            "type": "shell",
+            "type": "cppbuild",
             "label": "C/C++: clang++ build active file",
             "command": "/usr/bin/clang++",
             "args": [
+                "-framework",
+                "OpenGL",
+                "-framework",
+                "Cocoa",
+                "-framework",
+                "IOKit",
+                "-g",
+                "-I../include",
+                "-L../lib",
                 "-fcolor-diagnostics",
                 "-std=c++17",
                 "-fansi-escape-codes",
-                "-g",
+                "-lglfw3",
+                "-lglad",
                 "${file}",
+                "${fileDirname}/glad.c",
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}"
             ],
